@@ -201,6 +201,9 @@ boxplot(log(data2$no_reviews)~data2$stars,
 cor(data2$no_photos,data2$stars)
 cor(data2$no_reviews,data2$stars)
 
+summary(aov(no_photos~ stars, data=data2))
+summary(aov(no_reviews~ stars, data=data2))
+
 ## opening!
 op <- data2 %>% filter(firstreviewyr==2018) %>% group_by(neighborhood2) %>% summarise(count = n()) %>% arrange(desc(count))
 tot <- data2 %>% group_by(neighborhood2) %>% summarise(count = n()) %>% arrange(desc(count))
